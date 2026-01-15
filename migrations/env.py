@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 from config import settings
 from domain.models.base import Base
 from domain.models.users import User  # noqa
+from domain.models.tokens import Token # noqa
 
 config = context.config
 

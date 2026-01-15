@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
 
     secret_key: SecretStr
-    encrypt_algorithm: str = "HS256"
+    encrypt_algorithm: str
     access_token_expire_days: int = 1
     refresh_token_expire_days: int = 15
 
@@ -31,22 +31,3 @@ class Settings(BaseSettings):
         hosts = self.db_dsn.hosts()[0]
 
         return f"{self.db_dsn.scheme}://{hosts['username']}:***@{hosts['host']}:{hosts['port']}{self.db_dsn.path}"
-
-    def __str__(self) -> str:
-        cors_allow_origins = ", ".join(self.cors_allow_origins)
-        cors_allow_methods = ", ".join(self.cors_allow_methods)
-
-        parts = [
-            f"debug={self.debug}",
-            f"db_dsn={self.current_db_dsn}",
-            f"db_echo={self.db_echo}",
-            f"tz={self.tz}",
-            f"log_level={self.log_level}",
-            f"secret_key={self.secret_key}",
-            f"encrypt_algorithm={self.encrypt_algorithm}",
-            f"access_token_expire_days={self.access_token_expire_days}",
-            f"refresh_token_expire_days={self.refresh_token_expire_days}",
-            f"cors_allow_origins={cors_allow_origins}",
-            f"cors_allow_methods={cors_allow_methods}",
-        ]
-        return f"Settings({'; '.join(parts)})"

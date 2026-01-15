@@ -12,12 +12,12 @@ from config import logger, settings
 from dal.engines import get_async_engine
 from domain.exceptions import AlreadyExistsError, NotFoundError, UnauthorizedError
 
-TITLE = "Seller Cabinet API"
-DESCRIPTION = "API for Seller Cabinet"
+TITLE = "Trader Cabinet API"
+DESCRIPTION = "API for Trader Cabinet"
 CONTACT = {
-    "name": "Seller Support",
-    "url": "https://sllr.pro",
-    "email": "support@sllr.pro",
+    "name": "Trader Support",
+    "url": "https://bulldogfinance.pro",
+    "email": "support@bulldogfinance.pro",
 }
 
 VERSION = "1.0.0"
@@ -40,7 +40,6 @@ def create_app() -> FastAPI:
     )
 
     logger.info(f"Starting server {TITLE} [{VERSION}] ...")
-    logger.info(f"Settings: {settings}")
 
     app.add_middleware(
         CORSMiddleware,

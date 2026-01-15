@@ -6,7 +6,7 @@ import pytz
 from .logging import setup_logger
 from .settings import Settings
 
-APP_ID = "sllr-cabinet-api"
+APP_ID = "trader-cabinet-api"
 
 
 @lru_cache

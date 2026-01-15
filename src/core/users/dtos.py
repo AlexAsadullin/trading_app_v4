@@ -21,3 +21,23 @@ class UserProfile(BaseModel):
     birth_date: int
     phone_number: str
     register_date: int
+
+
+class ApiTokenDto(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    user_id: int
+    platform: str
+    name: str
+    date_added: int
+    expires_at: int
+
+
+class ApiTokenListItemDto(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    platform: str
+    name: str
+    date_added: int
+    expires_at: int

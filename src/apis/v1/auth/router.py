@@ -136,3 +136,4 @@ async def logout(response: Response):
 )
 async def get_profile(user: UserProfile = Depends(get_current_user)):
     return user
+
