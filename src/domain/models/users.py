@@ -13,10 +13,10 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     email = Column(String, unique=True, index=True)
     password_hash = Column(String)
-    first_name = Column(String)
-    last_name = Column(String)
-    birth_date = Column(Integer)
-    phone_number = Column(String)
+    first_name = Column(String, nullable=False)
+    last_name = Column(String, nullable=False)
+    birth_date = Column(Integer, nullable=False)
+    phone_number = Column(String, nullable=False)
     register_date = Column(BigInteger, nullable=False, default=current_ts)
 
     def __init__(self, email: str, password: str, first_name: str, last_name: str, birth_date: int, phone_number: str) -> None:
