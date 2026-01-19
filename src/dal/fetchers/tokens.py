@@ -12,3 +12,8 @@ class GetTokenByIdFetcher(IOneFetcher[Token]):
 class GetAllUserTokensFetcher(IManyFetcher[Token]):
     def _build_query(self, user_id: int) -> Select:
         return select(Token).where(Token.user_id == user_id).order_by(Token.date_added.desc())
+
+
+class GetTokenByPlatformFetcher(IOneFetcher[Token]):
+    def _build_query(self, user_id: int, platform: str) -> Select:
+        return select(Token).where(Token.user_id == user_id, Token.platform == platform)
