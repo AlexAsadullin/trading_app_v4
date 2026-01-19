@@ -26,6 +26,12 @@ class Settings(BaseSettings):
     cors_allow_origins: List[str]
     cors_allow_methods: List[str]
 
+    minio_endpoint: str
+    minio_access_key: str
+    minio_secret_key: SecretStr
+    minio_bucket_name: str
+    minio_secure: bool = True
+
     @property
     def current_db_dsn(self) -> str:
         hosts = self.db_dsn.hosts()[0]
