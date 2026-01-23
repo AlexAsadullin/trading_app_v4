@@ -21,4 +21,4 @@ sqlalchemy==2.0.44
 uvicorn[standard]==0.38.0
 t-tech-investments
 pandas
-minio==7.2.0
+minio==7.2.0moexalgo

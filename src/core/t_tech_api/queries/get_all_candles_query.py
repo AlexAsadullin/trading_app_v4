@@ -35,9 +35,9 @@ class GetAllCandlesQuery:
             raise ValueError("At least one time parameter must be non-zero")
 
         token_fetcher = GetTokenByPlatformFetcher()
-        token = await token_fetcher.fetch(user_id=user_id, platform="t-tech")
+        token = await token_fetcher.fetch(user_id=user_id, platform="t_tech")
         if not token:
-            raise NotFoundError(entity_name="Token", entity_id="t-tech")
+            raise NotFoundError(entity_name="Token", entity_id="t_tech")
 
         decrypted_token = decrypt_token(token.token_encrypted)
 
@@ -82,7 +82,7 @@ class GetAllCandlesQuery:
             csv_bytes = csv_content.encode('utf-8')
 
             filename = f"prices_{figi}_{interval_name}.csv"
-            source = "candles"
+            source = "t_tech"
             
             await storage_service.put_file(
                 user_id=user_id,
