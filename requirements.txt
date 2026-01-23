@@ -22,3 +22,4 @@ uvicorn[standard]==0.38.0
 t-tech-investments
 pandas
 minio==7.2.0moexalgo
+tsai
